@@ -1,9 +1,10 @@
-def sprawdz_czy_da_sie_zsumowac(liczba, m):
+def sprawdz_czy_da_sie_zsumowac_kwadraty(liczba):
     suma = 0
-    for i in range(1, m, 2):
+    for i in range(1, liczba, 2):
+        suma += i * i
         if suma == liczba:
             return True
-        suma += i
+    return False
 
 
-print(sprawdz_czy_da_sie_zsumowac(13, 7))
+print(sprawdz_czy_da_sie_zsumowac_kwadraty(10))
