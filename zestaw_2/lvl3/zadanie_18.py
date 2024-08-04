@@ -14,7 +14,7 @@ def odwroc_liczbe(liczba):
 
 
 def znajdz_odwrocone_liczby():
-    for i in range(1, 100):
+    for i in range(1, 10000):
         if i % 10 == 0:
             continue
         if odwroc_liczbe(i) * odwroc_liczbe(i) == odwroc_liczbe(i*i):
