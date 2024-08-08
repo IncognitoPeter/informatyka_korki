@@ -122,3 +122,12 @@ def sprawdz_czy_da_sie_zsumowac_kwadraty(liczba):
 
 #print(sprawdz_czy_da_sie_zsumowac_kwadraty(10))
 
+def odwracanie_liczby(liczba):
+    nowa = 0
+    while liczba != 0:
+        cyfra = liczba % 10
+        nowa = nowa *10 +cyfra
+        liczba = liczba // 10
+    return nowa
+
+# print(odwracanie_liczby(2567))
