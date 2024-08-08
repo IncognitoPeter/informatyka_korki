@@ -92,3 +92,33 @@ def suma_dzielnikow_pierwszych(liczba):
 
 
 # print(suma_dzielnikow_pierwszych(26))
+
+def sprawdz_czy_liczba_to_dwa_kwadraty(liczba):
+    for i in range(liczba):
+        if i * i + (i + 1) * (i + 1) == liczba:
+            return i
+    return -1
+
+
+# print(sprawdz_czy_liczba_to_dwa_kwadraty(41))
+
+def sprawdz_czy_liczba_to_trzy_kwadraty(liczba):
+    for i in range(liczba):
+        if i * i + (i + 1) * (i + 1) + (i + 2) * (i + 2) == liczba:
+            return i
+    return -1
+
+
+# print(sprawdz_czy_liczba_to_trzy_kwadraty(50))
+
+def sprawdz_czy_da_sie_zsumowac_kwadraty(liczba):
+    suma = 0
+    for i in range(1, liczba, 2):
+        suma += i * i
+        if suma == liczba:
+            return True
+    return False
+
+
+#print(sprawdz_czy_da_sie_zsumowac_kwadraty(10))
+
