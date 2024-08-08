@@ -57,3 +57,38 @@ def znajdz_rozne_cyfry(liczba):
 
 # print(znajdz_rozne_cyfry(1255))
 
+def czy_pierwsza(liczba):
+    if liczba <= 1:
+        return False
+    for i in range(2, liczba):
+        if liczba % i == 0:
+            return False
+    return True
+
+
+def szukaj_unikatowych_pierwszych(liczba):
+    ilosc = 0
+    for i in range(2, liczba):
+        if czy_pierwsza(i):
+            if liczba % i == 0:
+                liczba = liczba / i
+                if liczba % i != 0:
+                    ilosc += 1
+    return ilosc
+
+
+# print(szukaj_unikatowych_pierwszych(26))
+
+
+def suma_dzielnikow_pierwszych(liczba):
+    suma = 0
+    for i in range(2, liczba):
+        if czy_pierwsza(i):
+            if liczba % i == 0:
+                liczba = liczba / i
+                if liczba % i != 0:
+                    suma += i
+    return suma
+
+
+# print(suma_dzielnikow_pierwszych(26))
