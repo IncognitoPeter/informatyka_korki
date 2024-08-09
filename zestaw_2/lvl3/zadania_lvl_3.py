@@ -230,3 +230,62 @@ def rozklad_na_iloczyn():
 
 # print(rozklad_na_iloczyn())
 
+def sprawdz_czy_cyfry_tworza_ciag_rosnacy(liczba):
+    while liczba != 0:
+        cyfra_1 = liczba % 10
+        liczba = liczba // 10
+        cyfra_2 = liczba % 10
+        if cyfra_1 <= cyfra_2:
+            return False
+    return True
+
+
+# print(sprawdz_czy_cyfry_tworza_ciag_rosnacy(123))
+
+def sprawdz_czy_cyfry_tworza_ciag_arytmetyczny(liczba):
+    while liczba != 0:
+        cyfra_1 = liczba % 10
+        liczba = liczba // 10
+        cyfra_2 = liczba % 10
+        liczba = liczba // 10
+        cyfra_3 = liczba % 10
+        if cyfra_1 - cyfra_2 == cyfra_2 - cyfra_3:
+            return True
+    return False
+
+
+# print(sprawdz_czy_cyfry_tworza_ciag_arytmetyczny(123))
+
+def sprawdz_czy_cyfry_tworza_ciag_geometryczny(liczba):
+    while liczba != 0:
+        cyfra_1 = liczba % 10
+        liczba = liczba // 10
+        cyfra_2 = liczba % 10
+        liczba = liczba // 10
+        cyfra_3 = liczba % 10
+        try:
+            if cyfra_1 / cyfra_2 == cyfra_2 / cyfra_3:
+                return True
+        except ZeroDivisionError:
+            return False
+    return False
+
+
+# print(sprawdz_czy_cyfry_tworza_ciag_geometryczny(124))
+
+def odwroc_liczbe(liczba):
+    nowa = 0
+    while liczba != 0:
+        cyfra = liczba % 10
+        nowa = nowa * 10 + cyfra
+        liczba = liczba // 10
+    return nowa
+
+
+def znajdz_odwrocone_liczby():
+    for i in range(1, 1000000):
+        if i % 10 != 0 and odwroc_liczbe(i) * odwroc_liczbe(i) == odwroc_liczbe(i*i):
+            print(i, odwroc_liczbe(i))
+
+
+# print(znajdz_odwrocone_liczby())
