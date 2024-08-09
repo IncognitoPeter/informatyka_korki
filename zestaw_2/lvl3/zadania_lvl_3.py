@@ -120,17 +120,18 @@ def sprawdz_czy_da_sie_zsumowac_kwadraty(liczba):
     return False
 
 
-#print(sprawdz_czy_da_sie_zsumowac_kwadraty(10))
+# print(sprawdz_czy_da_sie_zsumowac_kwadraty(10))
 
 def odwracanie_liczby(liczba):
     nowa = 0
     while liczba != 0:
         cyfra = liczba % 10
-        nowa = nowa *10 +cyfra
+        nowa = nowa * 10 + cyfra
         liczba = liczba // 10
     return nowa
 
 # print(odwracanie_liczby(2567))
+
 
 def sprawdz_czy_palindrom(liczba):
     nowa = 0
@@ -158,4 +159,3 @@ def zamiana_na_dwojkowy(liczba):
 
 
 # print(zamiana_na_dwojkowy(54))
-
