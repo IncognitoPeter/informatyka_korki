@@ -131,3 +131,31 @@ def odwracanie_liczby(liczba):
     return nowa
 
 # print(odwracanie_liczby(2567))
+
+def sprawdz_czy_palindrom(liczba):
+    nowa = 0
+    liczba_1 = liczba
+    while liczba != 0:
+        cyfra = liczba % 10
+        nowa = nowa * 10 + cyfra
+        liczba = liczba // 10
+    if nowa == liczba_1:
+        return True
+    return False
+
+
+# print(sprawdz_czy_palindrom(161))
+
+def zamiana_na_dwojkowy(liczba):
+    a = 0
+    mnoznik = 1
+    while liczba != 0:
+        cyfra = liczba % 2
+        a += cyfra * mnoznik
+        liczba = liczba // 2
+        mnoznik *= 10
+    return a
+
+
+# print(zamiana_na_dwojkowy(54))
+
