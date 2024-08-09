@@ -1,5 +1,5 @@
-def zaszyfruj_cyfry_w_liczbie(liczba):
+def sprawdz_czy_cyfry_tworza_ciag_rosnacy(liczba):
     pass
 
 
-zaszyfruj_cyfry_w_liczbie(156)
+print(sprawdz_czy_cyfry_tworza_ciag_rosnacy(123))

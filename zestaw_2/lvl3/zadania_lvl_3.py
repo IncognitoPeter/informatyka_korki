@@ -159,3 +159,74 @@ def zamiana_na_dwojkowy(liczba):
 
 
 # print(zamiana_na_dwojkowy(54))
+
+def zaszyfruj_cyfry_w_liczbie(liczba):
+    zaszyfrowane = 0
+    mnoznik = 1
+    cyfry = 0
+    liczba_pom = liczba
+    while liczba_pom != 0:
+        liczba_pom = liczba_pom // 10
+        cyfry += 1
+    while liczba != 0:
+        cyfra = liczba % 10
+        if cyfry == 1 and cyfra == 9:
+            zaszyfrowane += (cyfra + 1) * mnoznik
+        if cyfra == 9:
+            zaszyfrowane += 0 * mnoznik
+        else:
+            zaszyfrowane += (cyfra + 1) * mnoznik
+        liczba = liczba // 10
+        mnoznik *= 10
+        cyfry -= 1
+    return zaszyfrowane
+
+
+# print(zaszyfruj_cyfry_w_liczbie(9796))
+
+def podziel_liczbe(liczba):
+    super_dzielnik_2 = 2
+    super_dzielnik_3 = 3
+    super_dzielnik_5 = 5
+    for i in range(1, liczba + 1):
+        if i != super_dzielnik_2 and i != super_dzielnik_3 and i != super_dzielnik_5:
+            if liczba % i == 0:
+                return False
+    return True
+
+
+def szukaj_dziwnych_liczb(n):  # ta funkcja jesli ma być podzielne przez jakiekolwiek z 2,3,5 (łącznie z '1')
+    suma = 0
+    for i in range(1, n + 1):
+        podziel_liczbe(i)
+        suma += 1
+    return suma
+
+# print(szukaj_dziwnych_liczb(23))
+
+
+def szukaj_dziwnych_liczb_v2(n):  # a ta funkcja jak ma być równocześnie podzielne przez 2,3,5 (łącznie z '1')
+    suma = 1
+    for i in range(1, n + 1):
+        if i % 2 == 0 and i % 3 == 0 and i % 5 == 0:
+            suma += 1
+    return suma
+
+
+# print(szukaj_dziwnych_liczb_v2(256))
+
+def rozklad_na_iloczyn():
+    liczba1 = 0
+    liczba2 = 0
+    liczba = int(input('podaj liczbe: \n'))
+    for i in range(liczba//2):
+        if i*i <= liczba:
+            liczba1 = i
+    for i in range(liczba//2):
+        if liczba1*i == liczba:
+            liczba2 = i
+    return liczba1, liczba2
+
+
+# print(rozklad_na_iloczyn())
+
