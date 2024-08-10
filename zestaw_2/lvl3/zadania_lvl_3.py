@@ -7,6 +7,7 @@ def sprawdz_czy_jest_kwadratem(liczba):
 
 # print(sprawdz_czy_jest_kwadratem(25))
 
+
 def sprawdz_czy_jest_szescianem(liczba):
     for i in range(liczba // 2):
         if i * i * i == liczba:
@@ -60,9 +61,11 @@ def znajdz_rozne_cyfry(liczba):
 def czy_pierwsza(liczba):
     if liczba <= 1:
         return False
-    for i in range(2, liczba):
+    i = 2
+    while i * i <= liczba:
         if liczba % i == 0:
             return False
+        i += 1
     return True
 
 
