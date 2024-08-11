@@ -22,3 +22,44 @@ def bin2dec(liczba):
     return a
 
 # print(bin2dec(111))
+
+
+def bin2kbase(liczba, k):
+    a = 0
+    mnoznik = 1
+    liczba_k = 0
+    while liczba != 0:
+        cyfra = liczba % 10
+        a += cyfra * mnoznik
+        liczba = liczba // 10
+        mnoznik *= 2
+    mnoznik = 1
+    while a != 0:
+        cyfra = a % k
+        liczba_k += cyfra * mnoznik
+        a = a // k
+        mnoznik *= k
+    return liczba_k
+
+# print(bin2kbase(111, 10))
+
+
+def kbase2bin(liczba, k):
+    a = 0
+    mnoznik = 1
+    liczba_bin = 0
+    while liczba != 0:
+        cyfra = liczba % 10
+        a += cyfra * mnoznik
+        liczba = liczba // 10
+        mnoznik *= k
+    mnoznik = 1
+    while a != 0:
+        cyfra = a % 2
+        liczba_bin += cyfra * mnoznik
+        a = a // 2
+        mnoznik *= k
+    return liczba_bin
+
+
+# print(kbase2bin(7,10))
