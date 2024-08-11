@@ -25,6 +25,8 @@ def bin2dec(liczba):
 
 
 def bin2kbase(liczba, k):
+    if k > 10:
+        return "zle k"
     a = 0
     mnoznik = 1
     liczba_k = 0
@@ -45,6 +47,8 @@ def bin2kbase(liczba, k):
 
 
 def kbase2bin(liczba, k):
+    if k > 10:
+        return "zle k"
     a = 0
     mnoznik = 1
     liczba_bin = 0
