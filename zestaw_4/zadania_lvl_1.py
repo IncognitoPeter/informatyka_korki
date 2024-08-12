@@ -86,4 +86,3 @@ def bit_and(a, b):
 
 
 # print(bit_and(5, 7))
-
