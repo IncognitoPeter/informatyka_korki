@@ -1,3 +1,4 @@
+# zadanie_1
 def dec2bin(liczba):
     a = 0
     mnoznik = 1
@@ -67,3 +68,22 @@ def kbase2bin(liczba, k):
 
 
 # print(kbase2bin(7,10))
+
+# zadanie_2
+
+def bit_and(a, b):
+    mnoznik = 1
+    wynik = 0
+    while a != 0 or b != 0:
+        cyfra_a = a % 2
+        cyfra_b = b % 2
+        if cyfra_a == 1 and cyfra_b == 1:
+            wynik += mnoznik
+        a = a // 2
+        b = b // 2
+        mnoznik *= 2
+    return wynik
+
+
+# print(bit_and(5, 7))
+
