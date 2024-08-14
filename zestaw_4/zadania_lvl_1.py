@@ -110,26 +110,85 @@ def factorial_base2dec(n):
 
 
 def are_anagrams(a, b):
-    pass
+    c0, c1, c2, c3, c4, c5, c6, c7, c8, c9 = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+    while a > 0:
+        cyfra_a = a % 10
+        if cyfra_a == 0:
+            c0 += 1
+        elif cyfra_a == 1:
+            c1 += 1
+        elif cyfra_a == 2:
+            c2 += 1
+        elif cyfra_a == 3:
+            c3 += 1
+        elif cyfra_a == 4:
+            c4 += 1
+        elif cyfra_a == 5:
+            c5 += 1
+        elif cyfra_a == 6:
+            c6 += 1
+        elif cyfra_a == 7:
+            c7 += 1
+        elif cyfra_a == 8:
+            c8 += 1
+        elif cyfra_a == 9:
+            c9 += 1
+        a = a // 10
+    while b > 0:
+        cyfra_b = b % 10
+        if cyfra_b == 0:
+            c0 -= 1
+        elif cyfra_b == 1:
+            c1 -= 1
+        elif cyfra_b == 2:
+            c2 -= 1
+        elif cyfra_b == 3:
+            c3 -= 1
+        elif cyfra_b == 4:
+            c4 -= 1
+        elif cyfra_b == 5:
+            c5 -= 1
+        elif cyfra_b == 6:
+            c6 -= 1
+        elif cyfra_b == 7:
+            c7 -= 1
+        elif cyfra_b == 8:
+            c8 -= 1
+        elif cyfra_b == 9:
+            c9 -= 1
+        b = b // 10
+    if c0 == 0 and c1 == 0 and c2 == 0 and c3 == 0 and c4 == 0 and c5 == 0:
+        if c6 == 0 and c7 == 0 and c8 == 0 and c9 == 0:
+            return True
+    return False
 
 
-# print(are_anagrams(345, 543))
+print(are_anagrams(3455, 543))
 
 # zadanie_6
 
+
 def sexagecimal_time2hundred(h, m, s):
-    pass
+    sekundy = h * 60 + m * 60 + s
+    s_prim = sekundy % 100
+    m_prim = (sekundy // 100) % 100
+    h_prim = (sekundy // 10000) % 100
+    return (h_prim, m_prim, s_prim)
 
+# print(sexagecimal_time2hundred(15, 37, 23))
 
-# print(sexagecimal_time2hundred(15, 37, 3))
 
 def hundred_base_time2sexagesimal(h, m, s):
-    pass
+    sekundy = h * 100 + m * 100 + s
+    s_prim = sekundy % 60
+    m_prim = (sekundy // 60) % 60
+    h_prim = (sekundy // 3600) % 60
+    return (h_prim, m_prim, s_prim)
 
-
-# print(hundred_base_time2sexagesimal(15, 37, 3))
+# print(hundred_base_time2sexagesimal(15, 37, 23))
 
 # zadanie_7
+
 
 def add(a, b):
     pass
@@ -199,5 +258,4 @@ def c(n, k):
     pass
 
 
-#print(c(8, 2))
-# cos
+# print(c(8, 2))
