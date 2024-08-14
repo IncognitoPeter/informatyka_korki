@@ -200,3 +200,4 @@ def c(n, k):
 
 
 #print(c(8, 2))
+# cos
