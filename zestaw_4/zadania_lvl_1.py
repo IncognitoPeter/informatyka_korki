@@ -115,6 +115,7 @@ def dec2factorial_base(n):
 
 # print(dec2factorial_base(101))
 
+
 def factorial_base2dec(n):
     liczba_10 = 0
     mnoznik = 1
