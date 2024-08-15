@@ -27,7 +27,7 @@ def bin2dec(liczba):
 
 def bin2kbase(liczba, k):
     if k > 10:
-        return "zle k"
+        return -1
     a = 0
     mnoznik = 1
     liczba_k = 0
@@ -49,7 +49,7 @@ def bin2kbase(liczba, k):
 
 def kbase2bin(liczba, k):
     if k > 10:
-        return "zle k"
+        return -1
     a = 0
     mnoznik = 1
     liczba_bin = 0
@@ -222,20 +222,34 @@ def hundred_base_time2sexagesimal(h, m, s):
 
 
 def add(a, b):
-    pass
+    mnoznik = 1
+    liczba = 0
+    while a != 0 or b != 0:
+        cyfra_a = a % 10
+        cyfra_b = b % 10
+        if cyfra_a + cyfra_b >= 10:
+            liczba += (cyfra_a + cyfra_b - 10) + 10 * mnoznik
+        else:
+            liczba += (cyfra_a + cyfra_b) * mnoznik
+        mnoznik *= 10
+        a = a // 10
+        b = b // 10
+    return liczba
 
 
-# print(add(17, 23))
+# print(add(117, 23))
 
 # zadanie_8
+
 
 def div(a, b):
     pass
 
 
-# print(div(51, 17))
+#print(div(51, 17))
 
 # zadanie_9
+
 
 def sub(a, b):
     pass
