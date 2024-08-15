@@ -96,15 +96,45 @@ def print_subnumbers(n, k):
 
 # zadanie_4
 def dec2factorial_base(n):
-    pass
+    liczba_10 = 0
+    mnoznik = 1
+    wynik = 0
+    while n != 0:
+        cyfra = n % 2
+        liczba_10 += cyfra * mnoznik
+        n = n // 10
+        mnoznik *= 2
+    mnoznik = 1
+    silnia = 1
+    while liczba_10 != 0:
+        wynik += (liczba_10 % silnia) * mnoznik
+        liczba_10 = liczba_10 // silnia
+        silnia += 1
+        mnoznik *= 10
+    return wynik
 
-
-# print(dec2factorial_base(10))
+# print(dec2factorial_base(101))
 
 def factorial_base2dec(n):
-    pass
+    liczba_10 = 0
+    mnoznik = 1
+    silnia = 1
+    wynik = 0
+    while n != 0:
+        liczba_10 += (n % 10) * mnoznik
+        n = n // 10
+        mnoznik *= silnia
+        silnia += 1
+    mnoznik = 1
+    while liczba_10 != 0:
+        cyfra = liczba_10 % 2
+        wynik += cyfra * mnoznik
+        liczba_10 = liczba_10 // 2
+        mnoznik *= 10
+    return wynik
 
-# print(factorial_base2dec(10))
+
+# print(factorial_base2dec(210))
 
 # zadanie_5
 
@@ -163,7 +193,7 @@ def are_anagrams(a, b):
     return False
 
 
-print(are_anagrams(3455, 543))
+# print(are_anagrams(3455, 543))
 
 # zadanie_6
 
