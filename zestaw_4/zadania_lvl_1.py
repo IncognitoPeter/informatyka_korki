@@ -204,7 +204,8 @@ def sexagecimal_time2hundred(h, m, s):
     s_prim = sekundy % 100
     m_prim = (sekundy // 100) % 100
     h_prim = (sekundy // 10000) % 100
-    return (h_prim, m_prim, s_prim)
+    wynik = (h_prim, m_prim, s_prim)
+    return wynik
 
 # print(sexagecimal_time2hundred(15, 37, 23))
 
@@ -214,7 +215,8 @@ def hundred_base_time2sexagesimal(h, m, s):
     s_prim = sekundy % 60
     m_prim = (sekundy // 60) % 60
     h_prim = (sekundy // 3600) % 60
-    return (h_prim, m_prim, s_prim)
+    wynik = (h_prim, m_prim, s_prim)
+    return wynik
 
 # print(hundred_base_time2sexagesimal(15, 37, 23))
 
@@ -244,7 +246,6 @@ def add(a, b):
 
 def div(a, b):
     wynik = 0
-    mnoznik = 0
     reszta = 0
     liczba = a
     nowa = 0
@@ -270,7 +271,6 @@ def div(a, b):
 
 def sub(a, b):
     wynik = 0
-    mnoznik = 0
     reszta = 0
     liczba = a
     nowa = 0
@@ -288,10 +288,7 @@ def sub(a, b):
             wynik = wynik * 10
     return wynik
 
-print(sub(467, 399))
-
-
-# print(sub(173, 13))
+# print(sub(467, 399))
 
 # zadanie_10
 
@@ -304,7 +301,7 @@ def max_len_subnumber(n):
 # zadanie_11
 
 
-def add(a, b, k):
+def add_v2(a, b, k):
     pass
 
 
@@ -312,7 +309,7 @@ def add(a, b, k):
 
 # zadanie_12
 
-def sub(a, b, k):
+def sub_v2(a, b, k):
     pass
 
 
@@ -328,7 +325,7 @@ def mul(a, b, k):
 
 # zadanie_14
 
-def div(a, b, n):
+def div_v2(a, b, n):
     pass
 
 
