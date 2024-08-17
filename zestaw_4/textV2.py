@@ -1,68 +1,32 @@
-def kbase2bin(liczba, k):
-    if k > 10:
-        return -1
-    a = 0
+def add_v2(a, b, k):
+    liczba_1 = 0
+    liczba_2 = 0
     mnoznik = 1
-    liczba_bin = 0
-    while liczba != 0:
-        cyfra = liczba % 10
-        a += cyfra * mnoznik
-        liczba = liczba // 10
-        mnoznik *= k
-    mnoznik = 1
+    nowa = 0
     while a != 0:
-        cyfra = a % 2
-        liczba_bin += cyfra * mnoznik
-        a = a // 2
-        mnoznik *= k
-    return liczba_bin
-
-
-# print(kbase2bin(7,10))
-
-def bin2kbase(liczba, k):
-    if k > 10:
-        return -1
-    a = 0
-    mnoznik = 1
-    liczba_k = 0
-    while liczba != 0:
-        cyfra = liczba % 10
-        a += cyfra * mnoznik
-        liczba = liczba // 10
-        mnoznik *= 2
-    mnoznik = 1
-    while a != 0:
-        cyfra = a % k
-        liczba_k += cyfra * mnoznik
+        cyfra_a = a % k
+        liczba_1 += cyfra_a * mnoznik
         a = a // k
-        mnoznik *= k
-    return liczba_k
-
-# print(bin2kbase(111, 10))
-
-
-def dec2bin(liczba):
-    a = 0
-    mnoznik = 1
-    while liczba != 0:
-        cyfra = liczba % 2
-        a += cyfra * mnoznik
-        liczba = liczba // 2
         mnoznik *= 10
-    return a
-
-# print(dec2bin(7))
-
-
-def bin2dec(liczba):
-    a = 0
     mnoznik = 1
-    while liczba != 0:
-        cyfra = liczba % 10
-        a += cyfra * mnoznik
-        liczba = liczba // 10
-        mnoznik *= 2
-    return a
+    while b != 0:
+        cyfra_b = b % k
+        liczba_2 += cyfra_b * mnoznik
+        b = b // k
+        mnoznik *= 10
+    mnoznik = 1
+    while liczba_1 != 0 or liczba_2 != 0:
+        cyfra_1 = liczba_1 % k
+        cyfra_2 = liczba_2 % k
+        if cyfra_1 + cyfra_2 >= k:
+            nowa += (cyfra_1 + cyfra_2 - k) + k * mnoznik
+        else:
+            nowa += (cyfra_1 + cyfra_2) * mnoznik
+        mnoznik *= 10
+        liczba_1 = liczba_1 // 10
+        liczba_2 = liczba_2 // 10
 
-# print(bin2dec(111))
+    return liczba_1, liczba_2, nowa
+
+
+print(add_v2(14, 17, 10))
