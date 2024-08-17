@@ -15,6 +15,7 @@ def add_v2(a, b, k):
         b = b // k
         mnoznik *= 10
     mnoznik = 1
+
     while liczba_1 != 0 or liczba_2 != 0:
         cyfra_1 = liczba_1 % k
         cyfra_2 = liczba_2 % k
@@ -25,6 +26,7 @@ def add_v2(a, b, k):
         mnoznik *= 10
         liczba_1 = liczba_1 // 10
         liczba_2 = liczba_2 // 10
+
 
     return liczba_1, liczba_2, nowa
 

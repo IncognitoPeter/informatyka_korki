@@ -338,7 +338,23 @@ def add_v2(a, b, k):
 
 
 def sub_v2(a, b, k):
-    pass
+    liczba_1 = 0
+    liczba_2 = 0
+    mnoznik = 1
+    nowa = 0
+    while a != 0:
+        cyfra_a = a % k
+        liczba_1 += cyfra_a * mnoznik
+        a = a // k
+        mnoznik *= 10
+    mnoznik = 1
+    while b != 0:
+        cyfra_b = b % k
+        liczba_2 += cyfra_b * mnoznik
+        b = b // k
+        mnoznik *= 10
+    mnoznik = 1
+
 
 
 # print(sub(21, 15, 4))
