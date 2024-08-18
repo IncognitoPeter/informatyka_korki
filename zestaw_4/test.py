@@ -1,4 +1,4 @@
-def sub(a, b, k):
+def mul(a, b, k):
     liczba_1 = 0
     liczba_2 = 0
     mnoznik = 1
@@ -15,24 +15,17 @@ def sub(a, b, k):
         b = b // k
         mnoznik *= 10
     mnoznik = 1
-
-
-    wynik = 0
-    reszta = 0
-    liczba = a
-    nowa = 0
-    while liczba != 0:
-        nowa = nowa * 10 + liczba % 10
-        liczba = liczba // 10
-    liczba = nowa
-    while liczba != 0:
-        reszta = reszta * 10 + liczba % 10
-        liczba = liczba // 10
-        if reszta >= b:
-            wynik = wynik * 10 + reszta - b
-            reszta = reszta % b
+    while liczba_1 != 0 or liczba_2 != 0:
+        cyfra_1 = liczba_1 % k
+        cyfra_2 = liczba_2 % k
+        if cyfra_1 * cyfra_2 >= k:
+            nowa += (cyfra_1 * cyfra_2 // k) * k * mnoznik
         else:
-            wynik = wynik * 10
-    return wynik
+            nowa += (cyfra_1 * cyfra_2) * mnoznik
+        mnoznik *= 10
+        liczba_1 = liczba_1 // 10
+        liczba_2 = liczba_2 // 10
+    return liczba_1, liczba_2, nowa
 
-print(sub(467, 399, 10))
+
+print(mul(12, 11, 10))

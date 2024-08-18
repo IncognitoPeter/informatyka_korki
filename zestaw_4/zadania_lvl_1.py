@@ -353,11 +353,26 @@ def sub_v2(a, b, k):
         liczba_2 += cyfra_b * mnoznik
         b = b // k
         mnoznik *= 10
-    mnoznik = 1
+    wynik = 0
+    reszta = 0
+    liczba = liczba_1
+    while liczba != 0:
+        nowa = nowa * 10 + liczba % 10
+        liczba = liczba // 10
+    liczba = nowa
+    while liczba != 0:
+        reszta = reszta * 10 + liczba % 10
+        liczba = liczba // 10
+        if reszta >= liczba_2:
+            wynik = wynik * 10 + reszta - liczba_2
+            reszta = reszta % liczba_2
+        else:
+            wynik = wynik * 10
+    return wynik
 
 
+# print(sub_v2(467, 399, 10))
 
-# print(sub(21, 15, 4))
 
 # zadanie_13
 
