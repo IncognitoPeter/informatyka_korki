@@ -472,8 +472,22 @@ def div_v2(a, b, k):
 
 # zadanie_15
 
+def silnia(liczba):
+    if liczba == 1 or liczba == 0:
+        return 1
+    else:
+        return liczba * silnia(liczba-1)
+
+
 def c(n, k):
-    pass
+    pierwszy_sposob = silnia(n) / (silnia(k) * silnia(n - k))
+    licznik = 1
+    cos = 0
+    for i in range(k):
+        licznik *= n - cos
+        cos += 1
+    drugi_sposob = licznik / silnia(k)
 
+    return pierwszy_sposob, drugi_sposob
 
-# print(c(8, 2))
+print(c(8, 2))
