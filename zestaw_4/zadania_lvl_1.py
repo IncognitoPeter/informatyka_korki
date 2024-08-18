@@ -377,18 +377,74 @@ def sub_v2(a, b, k):
 # zadanie_13
 
 def mul(a, b, k):
-    pass
+    liczba_1 = 0
+    liczba_2 = 0
+    mnoznik = 1
+    nowa = 0
+    while a != 0:
+        cyfra_a = a % k
+        liczba_1 += cyfra_a * mnoznik
+        a = a // k
+        mnoznik *= 10
+    mnoznik = 1
+    while b != 0:
+        cyfra_b = b % k
+        liczba_2 += cyfra_b * mnoznik
+        b = b // k
+        mnoznik *= 10
+    mnoznik_1 = 1
+    wynik = 0
+    while liczba_1 != 0:
+        cyfra_1 = liczba_1 % 10
+        liczba_1 = liczba_1 // 10
+        mnoznik_2 = 1
+        nowa = 0
+        nowy_mnoznik = mnoznik_1
+        nowe_2 = liczba_2
+        while nowe_2 != 0:
+            cyfra_2 = nowe_2 % 10
+            nowe_2 = nowe_2 // 10
+            wynik_pom = cyfra_1 * cyfra_2
+            nowa += wynik_pom * nowy_mnoznik
+            nowy_mnoznik = nowy_mnoznik * 10
+            wynik += nowa
+            mnoznik_1 = mnoznik_1 * 10
+    return wynik
 
+#print(mul(12, 11, 10))
+#print(12*11)
 
-# print(mul(7, 4, 3))
 
 # zadanie_14
 
-def div_v2(a, b, n):
-    pass
+def div(a, b, k):
+    wynik = 0
+    reszta = 0
+    liczba = a
+    nowa = 0
+    while liczba != 0:
+        nowa = nowa * 10 + liczba % 10
+        liczba = liczba // 10
+    liczba = nowa
+    while liczba != 0:
+        reszta = reszta * 10 + liczba % 10
+        liczba = liczba // 10
+        if reszta >= b:
+            wynik = wynik * 10 + reszta // b
+            reszta = reszta % b
+        else:
+            wynik = wynik * 10
+    mnoznik = 1
+    nowy_wynik = 0
+    while wynik != 0:
+        cyfra_a = wynik % k
+        nowy_wynik += cyfra_a * mnoznik
+        wynik = wynik // k
+        mnoznik *= 10
+    return nowy_wynik
 
 
-# print(div(100, 3, 5))
+# print(div(51, 17, 10))
 
 # zadanie_15
 
