@@ -294,7 +294,32 @@ def sub(a, b):
 
 
 def max_len_subnumber(n):
-    pass
+    len = 1
+    len_max = 0
+    wynik = 0
+    pomocnik_1 = 0
+    pomocnik_2 = 0
+    nowa = 0
+    liczba = n
+    wynik_max = 0
+    while liczba != 0:
+        nowa = nowa * 10 + liczba % 10
+        liczba = liczba // 10
+    liczba = nowa
+    while liczba != 0:
+        pomocnik_1 = liczba % 10
+        liczba = liczba // 10
+        pomocnik_2 = liczba % 10
+        if pomocnik_1 < pomocnik_2 and len > len_max:
+            len +=1
+            wynik = wynik * 10 + pomocnik_1
+            wynik = wynik * 10 + pomocnik_2
+            wynik_max = wynik
+        else:
+            wynik = 0
+            len = 1
+    return wynik_max, len_max
+
 
 # print(max_len_subnumber(572134825))
 
@@ -380,7 +405,6 @@ def mul(a, b, k):
     liczba_1 = 0
     liczba_2 = 0
     mnoznik = 1
-    nowa = 0
     while a != 0:
         cyfra_a = a % k
         liczba_1 += cyfra_a * mnoznik
@@ -397,7 +421,7 @@ def mul(a, b, k):
     while liczba_1 != 0:
         cyfra_1 = liczba_1 % 10
         liczba_1 = liczba_1 // 10
-        mnoznik_2 = 1
+        # mnoznik_2 = 1
         nowa = 0
         nowy_mnoznik = mnoznik_1
         nowe_2 = liczba_2
@@ -411,13 +435,13 @@ def mul(a, b, k):
             mnoznik_1 = mnoznik_1 * 10
     return wynik
 
-#print(mul(12, 11, 10))
-#print(12*11)
+# print(mul(12, 11, 10))
+# print(12*11)
 
 
 # zadanie_14
 
-def div(a, b, k):
+def div_v2(a, b, k):
     wynik = 0
     reszta = 0
     liczba = a
@@ -444,7 +468,7 @@ def div(a, b, k):
     return nowy_wynik
 
 
-# print(div(51, 17, 10))
+# print(div_v2(51, 17, 10))
 
 # zadanie_15
 
