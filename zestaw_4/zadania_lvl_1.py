@@ -294,8 +294,8 @@ def sub(a, b):
 
 
 def max_len_subnumber(n):
-    len = 1
-    len_max = 0
+    dlugosc = 1
+    dlugosc_max = 0
     wynik = 0
     pomocnik_1 = 0
     pomocnik_2 = 0
@@ -310,15 +310,15 @@ def max_len_subnumber(n):
         pomocnik_1 = liczba % 10
         liczba = liczba // 10
         pomocnik_2 = liczba % 10
-        if pomocnik_1 < pomocnik_2 and len > len_max:
-            len +=1
+        if pomocnik_1 < pomocnik_2 and dlugosc > dlugosc_max:
+            dlugosc += 1
             wynik = wynik * 10 + pomocnik_1
             wynik = wynik * 10 + pomocnik_2
             wynik_max = wynik
         else:
             wynik = 0
-            len = 1
-    return wynik_max, len_max
+            dlugosc = 1
+    return wynik_max, dlugosc_max
 
 
 # print(max_len_subnumber(572134825))
@@ -472,22 +472,23 @@ def div_v2(a, b, k):
 
 # zadanie_15
 
-def silnia(liczba):
+def licz_silnie(liczba):
     if liczba == 1 or liczba == 0:
         return 1
     else:
-        return liczba * silnia(liczba-1)
+        return liczba * licz_silnie(liczba-1)
 
 
 def c(n, k):
-    pierwszy_sposob = silnia(n) / (silnia(k) * silnia(n - k))
+    pierwszy_sposob = licz_silnie(n) / (licz_silnie(k) * licz_silnie(n - k))
     licznik = 1
     cos = 0
     for i in range(k):
         licznik *= n - cos
         cos += 1
-    drugi_sposob = licznik / silnia(k)
+    drugi_sposob = licznik / licz_silnie(k)
 
     return pierwszy_sposob, drugi_sposob
+
 
 print(c(8, 2))
