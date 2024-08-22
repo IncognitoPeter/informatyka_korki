@@ -92,7 +92,8 @@ def print_subnumbers(n, k):
     pass
 
 
-# print(print_subnumbers(3, 2))
+# print(print_subnumbers(34567, 2))
+
 
 # zadanie_4
 def dec2factorial_base(n):
@@ -141,57 +142,23 @@ def factorial_base2dec(n):
 
 
 def are_anagrams(a, b):
-    c0, c1, c2, c3, c4, c5, c6, c7, c8, c9 = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-    while a > 0:
-        cyfra_a = a % 10
-        if cyfra_a == 0:
-            c0 += 1
-        elif cyfra_a == 1:
-            c1 += 1
-        elif cyfra_a == 2:
-            c2 += 1
-        elif cyfra_a == 3:
-            c3 += 1
-        elif cyfra_a == 4:
-            c4 += 1
-        elif cyfra_a == 5:
-            c5 += 1
-        elif cyfra_a == 6:
-            c6 += 1
-        elif cyfra_a == 7:
-            c7 += 1
-        elif cyfra_a == 8:
-            c8 += 1
-        elif cyfra_a == 9:
-            c9 += 1
-        a = a // 10
-    while b > 0:
-        cyfra_b = b % 10
-        if cyfra_b == 0:
-            c0 -= 1
-        elif cyfra_b == 1:
-            c1 -= 1
-        elif cyfra_b == 2:
-            c2 -= 1
-        elif cyfra_b == 3:
-            c3 -= 1
-        elif cyfra_b == 4:
-            c4 -= 1
-        elif cyfra_b == 5:
-            c5 -= 1
-        elif cyfra_b == 6:
-            c6 -= 1
-        elif cyfra_b == 7:
-            c7 -= 1
-        elif cyfra_b == 8:
-            c8 -= 1
-        elif cyfra_b == 9:
-            c9 -= 1
-        b = b // 10
-    if c0 == 0 and c1 == 0 and c2 == 0 and c3 == 0 and c4 == 0 and c5 == 0:
-        if c6 == 0 and c7 == 0 and c8 == 0 and c9 == 0:
-            return True
-    return False
+    for i in range(10):
+        count_a = 0
+        count_b = 0
+        cyfry_a = a
+        while cyfry_a > 0:
+            if cyfry_a % 10 == i:
+                count_a += 1
+            cyfry_a = cyfry_a // 10
+        cyfry_b = b
+        while cyfry_b > 0:
+            if cyfry_b % 10 == i:
+                count_b += 1
+            cyfry_b = cyfry_b // 10
+        if count_a != count_b:
+            return False
+
+    return True
 
 
 # print(are_anagrams(3455, 543))
@@ -297,8 +264,6 @@ def max_len_subnumber(n):
     dlugosc = 1
     dlugosc_max = 0
     wynik = 0
-    pomocnik_1 = 0
-    pomocnik_2 = 0
     nowa = 0
     liczba = n
     wynik_max = 0
@@ -401,43 +366,49 @@ def sub_v2(a, b, k):
 
 # zadanie_13
 
+def dec2k(liczba, k):
+    a = 0
+    mnoznik = 1
+    while liczba != 0:
+        cyfra = liczba % k
+        a += cyfra * mnoznik
+        liczba = liczba // k
+        mnoznik *= 10
+    return a
+
+
 def mul(a, b, k):
-    liczba_1 = 0
-    liczba_2 = 0
-    mnoznik = 1
-    while a != 0:
-        cyfra_a = a % k
-        liczba_1 += cyfra_a * mnoznik
-        a = a // k
-        mnoznik *= 10
-    mnoznik = 1
-    while b != 0:
-        cyfra_b = b % k
-        liczba_2 += cyfra_b * mnoznik
-        b = b // k
-        mnoznik *= 10
-    mnoznik_1 = 1
     wynik = 0
-    while liczba_1 != 0:
-        cyfra_1 = liczba_1 % 10
-        liczba_1 = liczba_1 // 10
-        # mnoznik_2 = 1
-        nowa = 0
-        nowy_mnoznik = mnoznik_1
-        nowe_2 = liczba_2
-        while nowe_2 != 0:
-            cyfra_2 = nowe_2 % 10
-            nowe_2 = nowe_2 // 10
-            wynik_pom = cyfra_1 * cyfra_2
-            nowa += wynik_pom * nowy_mnoznik
-            nowy_mnoznik = nowy_mnoznik * 10
-            wynik += nowa
-            mnoznik_1 = mnoznik_1 * 10
+    mnoznik = 1
+    while b > 0:
+        cyfra_b = b % 10
+        b = b // 10
+        nowe = 0
+        nowe_a = a
+        nowy_mnoznik = 1
+        while nowe_a > 0:
+            cyfra_a = nowe_a % 10
+            nowe_a = nowe_a // 10
+            nowe += (cyfra_a * cyfra_b % k) * nowy_mnoznik
+            nowy_mnoznik *= 10
+        wynik += nowe * mnoznik
+        mnoznik *= 10
+
     return wynik
 
-# print(mul(12, 11, 10))
-# print(12*11)
 
+def mul1(a, b, k):
+    wynik = 0
+    mnoznik = 1
+    while b > 0:
+        wynik += mul(a, b % 10, k) * mnoznik
+        b = b // 10
+        mnoznik *= 10
+    return wynik
+
+
+# print(mul1(12, 11, 10))
+# print(12 * 11)
 
 # zadanie_14
 
@@ -491,4 +462,4 @@ def c(n, k):
     return pierwszy_sposob, drugi_sposob
 
 
-print(c(8, 2))
+# print(c(8, 2))
