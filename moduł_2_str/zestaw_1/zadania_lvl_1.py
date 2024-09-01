@@ -75,8 +75,16 @@ def alfabeton(napis):
 # zadanie_8
 
 
-def minimalne_podslowo():
-    pass
+def minimalne_podslowo(napis):
+    slowo = ''
+    for i in range(3):
+        a = min(napis)
+        slowo += a
+        napis = napis.replace(a, '')
+    return slowo
+
+
+# print(minimalne_podslowo('abecaklo'))
 
 # zadanie_9
 
