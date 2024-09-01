@@ -42,33 +42,50 @@ def prefiks_sufiks(napis):
 
 # zadanie_5
 def lipogram(napis):
+    alfabet = 'abcdefghijklmnopqrstuvwxyz'
     napis = napis.lower()
     for i in napis:
-        napis = napis.replace(i, '')
-    return napis
+        alfabet = alfabet.replace(i, '')
+    return alfabet
 
-print(lipogram('Słońce tego dnia wstało jakieś dziwnie leniwe, matowe bez blasku. Około południa na powleczone niezwykłą bladością niebo wypełzły'))
+# print(lipogram('Słońce tego dnia wstało jakieś dziwnie leniwe, matowe bez blasku. Około południa na powleczone'))
 
 # zadanie_6
+
+
 def panagram(napis):
     return napis.isalpha()
 
-#print(panagram('fdf3d'))
+# print(panagram('fdf3d'))
 
 # zadanie_7
-def alfabeton():
-    pass
+
+
+def alfabeton(napis):
+    alfabet = 'abcdefghijklmnopqrstuvwxyz'
+    napis = napis.lower()
+    for i in napis:
+        alfabet = alfabet.replace(i, '')
+    if alfabet == '':
+        return True
+    return False
+
+# print(alfabeton('abcdefghijklmnopqrstuvwxyz'))
 
 # zadanie_8
-def minimalne_podsłowo():
+
+
+def minimalne_podslowo():
     pass
 
 # zadanie_9
+
+
 def nieczytelne_liczby():
     pass
 
 # zadanie_10
-def kod_DNA():
+
+
+def kod_dna():
     pass
-
-
