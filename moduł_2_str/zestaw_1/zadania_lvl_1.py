@@ -89,8 +89,28 @@ def minimalne_podslowo(napis):
 # zadanie_9
 
 
-def nieczytelne_liczby():
-    pass
+def nieczytelne_liczby(liczba_1, liczba_2):
+    if len(liczba_1) != len(liczba_2):
+        if len(liczba_1) > len(liczba_2):
+            return 1
+        else:
+            return 2
+    for i in range(len(liczba_1)):
+        cyfra_1 = liczba_1[i]
+        cyfra_2 = liczba_2[i]
+        if cyfra_1 == '?' and cyfra_2 == '?':
+            continue
+        elif cyfra_1 == '?' and cyfra_2 != '?':
+            return -1
+        elif cyfra_1 != '?' and cyfra_2 == '?':
+            return -1
+        elif cyfra_1 > cyfra_2:
+            return 1
+        elif cyfra_1 < cyfra_2:
+            return 2
+
+
+# print(nieczytelne_liczby('?323232','3221?'))
 
 # zadanie_10
 
