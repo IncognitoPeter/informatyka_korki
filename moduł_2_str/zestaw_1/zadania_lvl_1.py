@@ -115,5 +115,45 @@ def nieczytelne_liczby(liczba_1, liczba_2):
 # zadanie_10
 
 
-def kod_dna():
-    pass
+def kod_dna_v1(koddna):
+    dlugosc_v0 = 0
+    start_v0 = 1
+    dlugosc_v1 = 0
+    start_v1 = -1
+    for i in range(len(koddna)):
+        if koddna[i] == 'T':
+            if dlugosc_v1 == 0:
+                start_v1 = i
+            dlugosc_v1 += 1
+        else:
+            if dlugosc_v1 > dlugosc_v0:
+                dlugosc_v0 = dlugosc_v1
+                start_v0 = start_v1
+            dlugosc_v1 = 0
+    if dlugosc_v1 > dlugosc_v0:
+        dlugosc_v0 = dlugosc_v1
+        start_v0 = start_v1
+    return start_v0, dlugosc_v0
+
+
+# print(kod_dna_v1('GTATGTTATTTTTTAAGCACTCACTCGGGGTTACGTTCTTTATGCTATTGCCTCG'))
+
+
+def kod_dna_v2(koddna):
+    dlugosc_v0 = 0
+    fragment_v0 = ''
+    fragment_v1 = koddna[0]
+    for i in range(1, len(koddna)):
+        if koddna[i] != koddna[i - 1]:
+            fragment_v1 += koddna[i]
+        elif len(fragment_v1) > dlugosc_v0:
+            dlugosc_v0 = len(fragment_v1)
+            fragment_v0 = fragment_v1
+        fragment_v1 = koddna[i]
+    if len(fragment_v1) > dlugosc_v0:
+        dlugosc_v0 = len(fragment_v1)
+        fragment_v0 = fragment_v1
+    return fragment_v0, fragment_v1
+
+
+print(kod_dna_v2('GTATGTTATTTTTTAAGCACTCACTCGGGGTTACGTTCTTTATGCTATTGCCTCG'))
