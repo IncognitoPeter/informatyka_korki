@@ -149,7 +149,7 @@ def kod_dna_v2(koddna):
         elif len(fragment_v1) > dlugosc_v0:
             dlugosc_v0 = len(fragment_v1)
             fragment_v0 = fragment_v1
-        fragment_v1 = koddna[i]
+            fragment_v1 = koddna[i]
     if len(fragment_v1) > dlugosc_v0:
         dlugosc_v0 = len(fragment_v1)
         fragment_v0 = fragment_v1
