@@ -54,7 +54,11 @@ def lipogram(napis):
 
 
 def panagram(napis):
-    return napis.isalpha()
+    alfabet = 'abcdefghijklmnopqrstuvwxyz'
+    for i in napis:
+        if i not in alfabet:
+            return False
+    return True
 
 # print(panagram('fdf3d'))
 
@@ -63,20 +67,25 @@ def panagram(napis):
 
 def alfabeton(napis):
     alfabet = 'abcdefghijklmnopqrstuvwxyz'
+    alfabet_1 = ''
     napis = napis.lower()
     for i in napis:
-        alfabet = alfabet.replace(i, '')
-    if alfabet == '':
-        return True
-    return False
+        if i in alfabet:
+            if i in alfabet_1:
+                return False
+        alfabet_1 += i
+    return True
 
-# print(alfabeton('abcdefghijklmnopqrstuvwxyz'))
+# print(alfabeton('aabcdefghijklmnopqrstuvwxyz'))
 
 # zadanie_8
 
 
 def minimalne_podslowo(napis):
     slowo = ''
+    napis = napis.replace(' ', '')
+    napis = napis.lower()
+    print(min(napis))
     for i in range(3):
         a = min(napis)
         slowo += a
@@ -84,7 +93,7 @@ def minimalne_podslowo(napis):
     return slowo
 
 
-# print(minimalne_podslowo('abecaklo'))
+# print(minimalne_podslowo('Halina pije wodę w Kołaczycach'))
 
 # zadanie_9
 
@@ -110,7 +119,7 @@ def nieczytelne_liczby(liczba_1, liczba_2):
             return 2
 
 
-# print(nieczytelne_liczby('?323232','3221?'))
+# print(nieczytelne_liczby('?31418?1249?00111????','931?919191?11919?????'))
 
 # zadanie_10
 
@@ -140,20 +149,18 @@ def kod_dna_v1(koddna):
 
 
 def kod_dna_v2(koddna):
-    dlugosc_v0 = 0
-    fragment_v0 = ''
+    fragment_v0 = ""
     fragment_v1 = koddna[0]
     for i in range(1, len(koddna)):
         if koddna[i] != koddna[i - 1]:
             fragment_v1 += koddna[i]
-        elif len(fragment_v1) > dlugosc_v0:
-            dlugosc_v0 = len(fragment_v1)
-            fragment_v0 = fragment_v1
+        else:
+            if len(fragment_v1) > len(fragment_v0):
+                fragment_v0 = fragment_v1
             fragment_v1 = koddna[i]
-    if len(fragment_v1) > dlugosc_v0:
-        dlugosc_v0 = len(fragment_v1)
+    if len(fragment_v1) > len(fragment_v0):
         fragment_v0 = fragment_v1
-    return fragment_v0, fragment_v1
+    return fragment_v0
 
 
-print(kod_dna_v2('GTATGTTATTTTTTAAGCACTCACTCGGGGTTACGTTCTTTATGCTATTGCCTCG'))
+# print(kod_dna_v2('GTATGTTATTTTTTAAGCACTCACTCGGGGTTACGTTCTTTATGCTATTGCCTCG'))
