@@ -37,9 +37,74 @@ def sprawdz_czy_jest_potega(liczba):
 
 
 def licz_punkty_kratowe(a, b):
-    x = a
-    y= 1000/x
-    pass
+    for x in range(a, b + 1):
+        y = 1000 / x
+        if 1000 % x == 0:
+            print(x, y)
 
 
 # print(licz_punkty_kratowe(1,20))
+
+# zadanie_3
+def rozklad_na_czynniki():
+    pass
+
+
+# print(rozklad_na_czynniki())
+
+# zadanie_4
+def wypisz_trojki_pitagorejskie(n):
+    for a in range(1, n):
+        for b in range(a + 1, n):
+            c = 1
+            while c * c < a*a + b*b:
+                c += 1
+            if c * c == a*a + b*b:
+                if c < n:
+                    print(a, b, c)
+
+
+# print(wypisz_trojki_pitagorejskie(14))
+
+# zadanie_5
+def wypisz_n_cyfrowe():
+    pass
+
+
+# print(wypisz_n_cyfrowe())
+
+# zadanie_6
+def pierwiastek_calkowitolicznowy():
+    pass
+
+# print(pierwiastek_calkowitolicznowy())
+
+# zadanie_7
+
+
+def koledzy_miliona():
+    pass
+
+# print(koledzy_miliona))
+
+# zadanie_8
+
+
+def nwd_3_liczb():
+    pass
+
+
+# print(nwd_3_liczb())
+
+# zadanie_9
+def nww_3_liczb():
+    pass
+
+
+# print(nww_3_liczb())
+
+# zadanie_10
+def liczba_smitha():
+    pass
+
+# print(liczba_smitha())
