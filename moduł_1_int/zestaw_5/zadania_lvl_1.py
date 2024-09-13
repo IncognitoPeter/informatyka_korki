@@ -88,10 +88,27 @@ def wypisz_trojki_pitagorejskie(n):
 
 # zadanie_5
 def wypisz_n_cyfrowe(liczba):
-    pass
+    liczba_v1 = liczba
+    cyfry = 0
+    while liczba_v1 != 0:
+        liczba_v1 = liczba_v1 // 10
+        cyfry += 1
+    wynik = 0
+    liczba_v1 = liczba
+    while liczba_v1 != 0:
+        cyfra = liczba_v1 % 10
+        for i in range(cyfry):
+            wynik += cyfra
+            cyfra = cyfra * cyfra
+        liczba_v1 = liczba_v1 // 10
+    return wynik
 
+def wypisz_liczby():
+    for i in range(1,100):
+        if wypisz_n_cyfrowe(i):
+            print(i)
 
-# print(wypisz_n_cyfrowe())
+# print(wypisz_liczby())
 
 # zadanie_6
 def pierwiastek_calkowitolicznowy():
