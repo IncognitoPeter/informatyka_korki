@@ -46,11 +46,31 @@ def licz_punkty_kratowe(a, b):
 # print(licz_punkty_kratowe(1,20))
 
 # zadanie_3
-def rozklad_na_czynniki():
-    pass
+def rozklad_na_czynniki_z_jedna_wspolna(liczba_1, liczba_2):
+    a = 0
+    b = 0
+    dzielnik = 2
+    mnoznik = 1
+    while liczba_1 != 0:
+        if liczba_1 // dzielnik:
+            a += dzielnik * mnoznik
+            mnoznik *= 10
+            liczba_1 = liczba_1 // dzielnik
+        else:
+            dzielnik += 1
+            mnoznik *= 10
+    dzielnik = 2
+    while liczba_2 != 0:
+        if liczba_2 // dzielnik:
+            a += dzielnik * mnoznik
+            mnoznik *= 10
+            liczba_2 = liczba_2 // dzielnik
+        else:
+            dzielnik += 1
+            mnoznik *= 10
+    return a, b
 
-
-# print(rozklad_na_czynniki())
+# print(rozklad_na_czynniki_z_jedna_wspolna(24, 14))
 
 # zadanie_4
 def wypisz_trojki_pitagorejskie(n):
@@ -67,7 +87,7 @@ def wypisz_trojki_pitagorejskie(n):
 # print(wypisz_trojki_pitagorejskie(14))
 
 # zadanie_5
-def wypisz_n_cyfrowe():
+def wypisz_n_cyfrowe(liczba):
     pass
 
 
