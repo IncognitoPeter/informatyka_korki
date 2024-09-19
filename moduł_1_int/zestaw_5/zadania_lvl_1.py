@@ -31,31 +31,39 @@ def licz_punkty_kratowe(a, b):
 # print(licz_punkty_kratowe(1,2))
 
 # zadanie_3
-def rozklad_na_czynniki_z_jedna_wspolna(liczba_1, liczba_2):
-    a = 0
-    b = 0
+def rozklad_na_czynniki(liczba):
     dzielnik = 2
+    czynniki = 0
     mnoznik = 1
-    while liczba_1 != 0:
-        if liczba_1 // dzielnik:
-            a += dzielnik * mnoznik
+    while liczba > 1:
+        if liczba % dzielnik == 0:
+            czynniki += dzielnik * mnoznik
             mnoznik *= 10
-            liczba_1 = liczba_1 // dzielnik
+            liczba //= dzielnik
         else:
             dzielnik += 1
-            mnoznik *= 10
-    dzielnik = 2
-    while liczba_2 != 0:
-        if liczba_2 // dzielnik:
-            a += dzielnik * mnoznik
-            mnoznik *= 10
-            liczba_2 = liczba_2 // dzielnik
-        else:
-            dzielnik += 1
-            mnoznik *= 10
-    return a, b
+    return czynniki
+
+
+def rozklad_na_czynniki_z_jedna_wspolna(liczba_1, liczba_2):
+    czynniki_1 = rozklad_na_czynniki(liczba_1)
+    czynniki_2 = rozklad_na_czynniki(liczba_2)
+    wspolny_czynnik = 0
+    while czynniki_1 > 0 and czynniki_2 > 0:
+        cyfra_1 = czynniki_1 % 10
+        cyfra_2 = czynniki_2 % 10
+        if cyfra_1 == cyfra_2 and cyfra_1 != 0:
+            wspolny_czynnik += 1
+        czynniki_1 //= 10
+        czynniki_2 //= 10
+    if wspolny_czynnik == 1:
+        return True
+    else:
+        return False
+
 
 # print(rozklad_na_czynniki_z_jedna_wspolna(24, 14))
+
 
 # zadanie_4
 
@@ -84,19 +92,18 @@ def wypisz_n_cyfrowe(liczba):
     liczba_v1 = liczba
     while liczba_v1 != 0:
         cyfra = liczba_v1 % 10
-        for i in range(cyfry):
-            wynik += cyfra
-            cyfra = cyfra * cyfra
+        wynik += cyfra ** cyfry
         liczba_v1 = liczba_v1 // 10
-    return wynik
+    return wynik == liczba
 
 
 def wypisz_liczby():
-    for i in range(1, 100):
+    for i in range(1, 10000):
         if wypisz_n_cyfrowe(i):
             print(i)
 
-# print(wypisz_liczby())
+# wypisz_liczby()
+
 
 # zadanie_6
 
