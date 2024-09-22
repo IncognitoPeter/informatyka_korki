@@ -122,28 +122,55 @@ def pierwiastek_calkowitolicznowy(n):
 # print(pierwiastek_calkowitolicznowy(4))
 
 # zadanie_7
+def suma_dzielnikow(liczba):
+    suma = 0
+    for i in range(1, liczba // 2 + 1):
+        if liczba % i == 0:
+            suma += i
+    return suma
 
 
 def koledzy_miliona():
-    pass
+    for i in range(1, 10000):
+        a = suma_dzielnikow(i)
+        if i < a:
+            if a < 10000:
+                if suma_dzielnikow(a) == i:
+                    print(i, a)
 
-# print(koledzy_miliona))
+# koledzy_miliona()
 
 # zadanie_8
 
 
-def nwd_3_liczb():
-    pass
+def nwd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
 
 
-# print(nwd_3_liczb())
+def nwd_3_liczb(a, b, c):
+    jeden = nwd(a, b)
+    wynik = nwd(c, jeden)
+    return wynik
+
+
+# print(nwd_3_liczb(16, 8, 4))
 
 # zadanie_9
-def nww_3_liczb():
-    pass
 
 
-# print(nww_3_liczb())
+def nww(a, b):
+    return a * b // nwd(a, b)
+
+
+def nww_3_liczb(a, b, c):
+    jeden = nww(a, b)
+    wynik = nww(c, jeden)
+    return wynik
+
+
+# print(nww_3_liczb(2, 4, 8))
 
 # zadanie_10
 def liczba_smitha():
