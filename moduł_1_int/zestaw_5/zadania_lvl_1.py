@@ -108,10 +108,18 @@ def wypisz_liczby():
 # zadanie_6
 
 
-def pierwiastek_calkowitolicznowy():
-    pass
+def pierwiastek_calkowitolicznowy(n):
+    i = 1
+    suma = 0
+    licznik = 0
+    while suma <= n:
+        suma += i
+        i += 2
+        licznik += 1
+    return licznik-1
 
-# print(pierwiastek_calkowitolicznowy())
+
+# print(pierwiastek_calkowitolicznowy(4))
 
 # zadanie_7
 
