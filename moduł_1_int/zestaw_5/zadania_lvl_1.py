@@ -173,7 +173,93 @@ def nww_3_liczb(a, b, c):
 # print(nww_3_liczb(2, 4, 8))
 
 # zadanie_10
+def suma(liczba):
+    suma = 0
+    while liczba > 0:
+        suma += liczba % 10
+        liczba //= 10
+    return suma
+
+
+def suma_cyfr_czynnikow(liczba):
+    dzielnik = 2
+    suma_czynnikow = 0
+    while liczba > 1:
+        if liczba % dzielnik == 0:
+            suma_czynnikow += suma(dzielnik)
+            liczba //= dzielnik
+        else:
+            dzielnik += 1
+    return suma_czynnikow
+
+
+def czy_liczba_smith(liczba):
+    suma_liczby = suma(liczba)
+    suma_czynnikow = suma_cyfr_czynnikow(liczba)
+    return suma_liczby == suma_czynnikow
+
+
 def liczba_smitha():
-    pass
+    for i in range(2, 100):
+        if not czy_liczba_smith(i):
+            continue
+        print(i)
 
 # print(liczba_smitha())
+
+# zadanie 11
+def kwadraty_nie_szesciany(n):
+    i = 1
+    while i * i < n:
+        kwadrat = i * i
+        szescian = i * i * i
+        if kwadrat >= n:
+            break
+        if szescian >= n or kwadrat != szescian:
+            print(kwadrat)
+        i += 1
+
+# kwadraty_nie_szesciany(10)
+
+# zadanie 12
+def palindrom(n, podstawa):
+    liczba = n
+    odwrocona = 0
+    temp = liczba
+    while temp > 0:
+        odwrocona = odwrocona * podstawa + temp % podstawa
+        temp //= podstawa
+    return odwrocona == liczba
+
+
+def podstawa(n):
+    for podstawa in range(2, 11):
+        if palindrom(n, podstawa):
+            return podstawa
+    return None
+
+def czy_jest(n):
+    if podstawa(n):
+        return n, podstawa(n)
+
+# print(czy_jest(4))
+
+# zadanie 13
+def czy_ciag(liczba):
+    n = 1
+    while True:
+        an = n * n + n + 1
+        if an > liczba:
+            break
+        elif an == liczba:
+            return n, liczba
+        n += 1
+    return None
+
+
+#print(czy_ciag(31))
+
+# zadanie 14
+def licz_zera(liczba):
+    zero = 0
+    pass
