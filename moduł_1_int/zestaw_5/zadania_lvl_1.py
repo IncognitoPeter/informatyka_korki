@@ -110,10 +110,10 @@ def wypisz_liczby():
 
 def pierwiastek_calkowitolicznowy(n):
     i = 1
-    suma = 0
+    sumy = 0
     licznik = 0
-    while suma <= n:
-        suma += i
+    while sumy <= n:
+        sumy += i
         i += 2
         licznik += 1
     return licznik-1
@@ -123,11 +123,11 @@ def pierwiastek_calkowitolicznowy(n):
 
 # zadanie_7
 def suma_dzielnikow(liczba):
-    suma = 0
+    sumy = 0
     for i in range(1, liczba // 2 + 1):
         if liczba % i == 0:
-            suma += i
-    return suma
+            sumy += i
+    return sumy
 
 
 def koledzy_miliona():
@@ -174,11 +174,11 @@ def nww_3_liczb(a, b, c):
 
 # zadanie_10
 def suma(liczba):
-    suma = 0
+    sumy = 0
     while liczba > 0:
-        suma += liczba % 10
+        sumy += liczba % 10
         liczba //= 10
-    return suma
+    return sumy
 
 
 def suma_cyfr_czynnikow(liczba):
@@ -208,6 +208,8 @@ def liczba_smitha():
 # print(liczba_smitha())
 
 # zadanie 11
+
+
 def kwadraty_nie_szesciany(n):
     i = 1
     while i * i < n:
@@ -222,29 +224,34 @@ def kwadraty_nie_szesciany(n):
 # kwadraty_nie_szesciany(10)
 
 # zadanie 12
-def palindrom(n, podstawa):
+
+
+def palindrom(n, p):
     liczba = n
     odwrocona = 0
     temp = liczba
     while temp > 0:
-        odwrocona = odwrocona * podstawa + temp % podstawa
-        temp //= podstawa
+        odwrocona = odwrocona * p + temp % p
+        temp //= p
     return odwrocona == liczba
 
 
 def podstawa(n):
-    for podstawa in range(2, 11):
-        if palindrom(n, podstawa):
-            return podstawa
+    for p in range(2, 11):
+        if palindrom(n, p):
+            return p
     return None
+
 
 def czy_jest(n):
     if podstawa(n):
-        return n, podstawa(n)
+        return podstawa(n)
 
-# print(czy_jest(4))
+# print(czy_jest(5))
 
 # zadanie 13
+
+
 def czy_ciag(liczba):
     n = 1
     while True:
@@ -257,9 +264,8 @@ def czy_ciag(liczba):
     return None
 
 
-#print(czy_ciag(31))
+# print(czy_ciag(31))
 
 # zadanie 14
-def licz_zera(liczba):
-    zero = 0
+def licz_zera():
     pass
