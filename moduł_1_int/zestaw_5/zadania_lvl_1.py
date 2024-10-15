@@ -270,14 +270,16 @@ def czy_ciag(liczba):
 def licz_zera(n):
     zera = 0
     dzielnik = 5
-    while n>= dzielnik:
+    while n >= dzielnik:
         zera += n // dzielnik
-        dzielnik *=5
+        dzielnik *= 5
     return zera
 
 # print(licz_zera(100))
 
 # zadanie 15
+
+
 def ostatnia_niezerowa(n):
     zera = licz_zera(n)
     iloczyn = 1
