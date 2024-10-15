@@ -267,5 +267,29 @@ def czy_ciag(liczba):
 # print(czy_ciag(31))
 
 # zadanie 14
-def licz_zera():
-    pass
+def licz_zera(n):
+    zera = 0
+    dzielnik = 5
+    while n>= dzielnik:
+        zera += n // dzielnik
+        dzielnik *=5
+    return zera
+
+# print(licz_zera(100))
+
+# zadanie 15
+def ostatnia_niezerowa(n):
+    zera = licz_zera(n)
+    iloczyn = 1
+    licznik_dwojek = 0
+    for i in range(1, n + 1):
+        a = i
+        while a % 5 == 0:
+            a //= 5
+        while a % 2 == 0 and licznik_dwojek < zera:
+            a = a // 2
+            licznik_dwojek += 1
+        iloczyn = (iloczyn * (a % 10)) % 10
+    return iloczyn
+
+# print(ostatnia_niezerowa(26))
