@@ -131,7 +131,7 @@ def szereg_6_eps(x, eps):
 
 
 def funkcja_6(x):
-    pass
+    return math.atanh(x)
 
 
 # zadanie 7
