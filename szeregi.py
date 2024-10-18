@@ -81,7 +81,7 @@ def funkcja_3(x):
     return math.log(x + 1, math.e)
 
 
-# print(szereg_3_n(2, 10), szereg_3_eps(2, 10), funkcja_3(2))
+# print(szereg_3_n(2, 10), szereg_3_eps(2, 0.001), funkcja_3(2))
 
 # zadanie 4
 def szereg_4_n(x, n):
@@ -106,19 +106,32 @@ def funkcja_4(x):
     return math.cosh(x)
 
 
-# print(szereg_4_n(2, 10), szereg_4_eps(2, 10), funkcja_4(2))
+# print(szereg_4_n(2, 10), szereg_4_eps(2, 0.001), funkcja_4(2))
 
 # zadanie 5
 def szereg_5_n(x, n):
-    pass
+    s = 0
+    for i in range(1, n+1):
+        s += (-n) ** (n-1) * x ** n / silnia(n)
+    return s
 
 
 def szereg_5_eps(x, eps):
-    pass
+    s = 0
+    n = 1
+    wyraz = x
+    while abs(wyraz) > eps:
+        s += wyraz
+        n += 1
+        wyraz = (-n) ** (n-1) * x ** n / silnia(n)
+    return s
 
 
 def funkcja_5(x):
-    pass
+    return x
+
+
+# print(szereg_5_n((math.e-0.5), 10), szereg_5_eps((math.e-0.5),0.001), funkcja_5(math.e-0.5))
 
 
 # zadanie 6
@@ -169,7 +182,7 @@ def funkcja_7(x):
     return math.sinh(x)
 
 
-# print(szereg_7_n(2, 10), szereg_7_eps(2, 10), funkcja_7(2))
+# print(szereg_7_n(2, 10), szereg_7_eps(2, 0.001), funkcja_7(2))
 
 # zadanie 8
 def szereg_8_n(x, n):
@@ -194,7 +207,7 @@ def funkcja_8(x):
     return math.atan(x)
 
 
-# print(szereg_8_n(0.5, 10), szereg_8_eps(0.5, 10), funkcja_8(0.5))
+# print(szereg_8_n(0.5, 10), szereg_8_eps(0.5, 0.001), funkcja_8(0.5))
 
 # zadanie 9
 def szereg_9_n(x, n):
@@ -219,7 +232,7 @@ def funkcja_9(x):
     return math.cos(x)
 
 
-# print(szereg_9_n(2, 10), szereg_9_eps(2, 10), funkcja_9(2))
+# print(szereg_9_n(2, 10), szereg_9_eps(2, 0.001), funkcja_9(2))
 
 # zadanie 10
 def szereg_10_n(x, n):
@@ -244,19 +257,79 @@ def funkcja_10(x):
     return math.sin(x)
 
 
-# print(szereg_10_n(2, 10), szereg_10_eps(2, 10), funkcja_10(2))
+# print(szereg_10_n(2, 10), szereg_10_eps(2, 0.001), funkcja_10(2))
 
 # zadanie 11
 def szereg_11_n(x, n):
-    pass
+    s = 0
+    for i in range(1, n+1):
+        s += (-1) ** n * silnia(2*n) * x ** (2*n+1) / (4 ** n * silnia(n) ** 2 * (2*n+1))
+    return s
 
 
 def szereg_11_eps(x, eps):
-    pass
+    s = 0
+    n = 1
+    wyraz = x
+    while abs(wyraz) > eps:
+        s += wyraz
+        n += 1
+        wyraz = (-1) ** n * silnia(2*n) * x ** (2*n+1) / (4 ** n * silnia(n) ** 2 * (2*n+1))
+    return s
 
 
 def funkcja_11(x):
-    pass
+    return math.asinh(x)
 
 
-#print()
+# print(szereg_11_n(0.5, 10), szereg_11_eps(0.5, 0.001), funkcja_11(0.5))
+
+# zadanie 12
+def szereg_12_n(x, n):
+    s = 0
+    for i in range(1, n+1):
+        s += silnia(2*n) * x ** (2*n+1) / (4 ** n * silnia(n) ** 2 * (2*n+1))
+    return s
+
+
+def szereg_12_eps(x, eps):
+    s = 0
+    n = 1
+    wyraz = x
+    while abs(wyraz) > eps:
+        s += wyraz
+        n += 1
+        wyraz = silnia(2*n) * x ** (2*n+1) / (4 ** n * silnia(n) ** 2 * (2*n+1))
+    return s
+
+
+def funkcja_12(x):
+    return math.asin(x)
+
+
+# print(szereg_12_n(1, 10), szereg_12_eps(1, 0.001), funkcja_12(1))
+
+# zadanie 13
+def szereg_13_n(x, n):
+    s = 0
+    for i in range(1, n+1):
+        s += (-1) ** n * silnia(2*n) * x ** n / (4 ** n * silnia(n) ** 2 * (1-2*n))
+    return s
+
+
+def szereg_13_eps(x, eps):
+    s = 0
+    n = 1
+    wyraz = x
+    while abs(wyraz) > eps:
+        s += wyraz
+        n += 1
+        wyraz = (-1) ** n * silnia(2*n) * x ** n / (4 ** n * silnia(n) ** 2 * (1-2*n))
+    return s
+
+
+def funkcja_13(x):
+    return math.sqrt(x+1)
+
+
+# print(szereg_13_n(0.5, 10), szereg_13_eps(0.5, 0.001), funkcja_13(0.5))
