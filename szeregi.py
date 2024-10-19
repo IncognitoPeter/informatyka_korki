@@ -28,7 +28,7 @@ def funkcja_1(x):
 
 # zadanie 2
 def silnia(x):
-    if x == 1:
+    if x == 0:
         return 1
     else:
         return silnia(x-1) * x
@@ -312,19 +312,21 @@ def funkcja_12(x):
 # zadanie 13
 def szereg_13_n(x, n):
     s = 0
-    for i in range(1, n+1):
-        s += (-1) ** n * silnia(2*n) * x ** n / (4 ** n * silnia(n) ** 2 * (1-2*n))
+    for i in range(0, n):
+        s += (-1) ** i * silnia(2*i) * x ** i / (4 ** i * silnia(i) ** 2 * (1-2*i))
     return s
 
 
 def szereg_13_eps(x, eps):
     s = 0
-    n = 1
-    wyraz = x
-    while abs(wyraz) > eps:
+    n = 0
+    wyraz = 0
+    flaga = True
+    while flaga or abs(wyraz) > eps:
         s += wyraz
-        n += 1
         wyraz = (-1) ** n * silnia(2*n) * x ** n / (4 ** n * silnia(n) ** 2 * (1-2*n))
+        n += 1
+        flaga = False
     return s
 
 
@@ -332,4 +334,7 @@ def funkcja_13(x):
     return math.sqrt(x+1)
 
 
-# print(szereg_13_n(0.5, 10), szereg_13_eps(0.5, 0.001), funkcja_13(0.5))
+#print(szereg_13_n(0.5, 10), szereg_13_eps(0.5, 0.001), funkcja_13(0.5))
+n= 2
+x = 0.5
+print((-1) ** n * silnia(2*n) * x ** n / (4 ** n * silnia(n) ** 2 * (1-2*n)))

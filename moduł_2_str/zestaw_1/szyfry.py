@@ -46,7 +46,7 @@ def nwd(a, b):
 
 def rsa():
     p = 7
-    q = 13
+    q = 17
     n = p * q
     fi = (p - 1) * (q - 1)
     e = 2
@@ -54,7 +54,9 @@ def rsa():
         if nwd(e, fi) == 1:
             break
         e += 1
-    d = e % fi
+    d = 2
+    while d * e % fi != 1:
+        d += 1
     return (n, e), (n, d)
 
 # print(rsa())
