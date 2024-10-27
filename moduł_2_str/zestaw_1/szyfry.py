@@ -60,3 +60,34 @@ def rsa():
     return (n, e), (n, d)
 
 # print(rsa())
+
+def szyfrowanie(publiczny, wiadomosc):
+    n, e = publiczny
+    zaszyfrowana_wiadomosc = []
+    for litera in wiadomosc:
+        c = pow(ord(litera), e, n)
+        zaszyfrowana_wiadomosc.append(c)
+    return zaszyfrowana_wiadomosc
+
+def deszyfrowanie(prywatny, zaszyfrowana_wiadomosc):
+    n, d = prywatny
+    odszyfrowana_wiadomosc = ''
+    for c in zaszyfrowana_wiadomosc:
+        m = pow(c, d, n)  # m = c^d mod n
+        odszyfrowana_wiadomosc += chr(m)
+    return odszyfrowana_wiadomosc
+
+def RSA():
+    publiczny, prywatny = rsa()
+    wiadomosc = "COSTAM"
+    zaszyfrowane = szyfrowanie(publiczny, wiadomosc)
+    print(zaszyfrowane)
+    odszyfrowane = deszyfrowanie(prywatny, zaszyfrowane)
+    print(odszyfrowane)
+    if odszyfrowane == wiadomosc:
+        return 1
+    else:
+        return -1
+
+
+print(RSA())
