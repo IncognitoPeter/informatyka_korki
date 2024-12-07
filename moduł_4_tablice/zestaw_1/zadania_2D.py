@@ -195,10 +195,78 @@ def nwd_wszystkich(tablica):
 # print(nwd_wszystkich([6, 9, 8, 4, 10, 26]))
 
 # zadanie_15
-def wielomian(tablica):
-    pass
+def suma_w(w1, w2):
+    n = max(len(w1), len(w2))
+    wynik = [0] * n
+    for i in range(n):
+        if i < len(w1):
+            wynik[i] += w1[i]
+        if i < len(w2):
+            wynik[i] += w1[i]
+    return wynik
+
+# print(suma_w([3, 4, 0, 1], [1, 2]))
+
+def horner(w, x):
+    wynik = 0
+    for wsp in w:
+        wynik *= wsp
+    return wynik
+
+print(horner([3, 4, 0, 0, 1], 2))
+
+def horner_v2(w, a):
+    n = len(w)
+    wynik = [0] * (n - 1)
+    wynik[0] = w[0]
+    for i in range(1, n - 1):
+        wynik[i] = wynik[i - 1] + a * w[i]
+    reszta = wynik[-1]
+    return wynik, reszta
 
 
-# print(wielomian([6, 9, 8, 4, 10, 26] ))
+# print(horner_v2([3, 4, 0, 0, 1], 2))
 
-# zadanie_16
+
+
+
+# zadanie_17
+def najdluzszy_podciag_nwd(tablica):
+    max_dlugosc = 0
+    dlugosc = 0
+    poczatek = -1
+    for i in range(1, len(tablica)):
+        if nwd(tablica[i - 1], tablica[i]) == 1:
+            dlugosc += 1
+            if dlugosc > max_dlugosc:
+                max_dlugosc = dlugosc
+                poczatek = i - dlugosc
+        else:
+            dlugosc = 0
+    if max_dlugosc > 0:
+        return max_dlugosc, poczatek
+    else:
+        return -1, -1
+
+# print(najdluzszy_podciag_nwd([6, 9, 3, 12, 15, 10, 7]))
+
+# zadanie_18
+def najdluzszy_fibonacci(tablica):
+    fib = [1, 1]
+    while fib[-1] < max(tablica):
+        fib.append(fib[-1] + fib[-2])
+    max_dlugosc = 0
+    poczatek = 0
+    dlugosc = 0
+    for i in range(len(tablica)):
+        if tablica[i] in fib:
+            dlugosc += 1
+            if dlugosc > max_dlugosc:
+                max_dlugosc = dlugosc
+                poczatek = i
+        else:
+            dlugosc = 0
+    return max_dlugosc, poczatek
+
+
+# print(najdluzszy_fibonacci([5, 5, 7, 1, 1, 2, 3, 9, 1, 1, 2, 3, 5, 6, 6, 9]))
