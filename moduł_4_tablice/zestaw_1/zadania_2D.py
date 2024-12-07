@@ -202,30 +202,32 @@ def suma_w(w1, w2):
         if i < len(w1):
             wynik[i] += w1[i]
         if i < len(w2):
-            wynik[i] += w1[i]
+            wynik[i] += w2[i]
     return wynik
 
-# print(suma_w([3, 4, 0, 1], [1, 2]))
+# print(suma_w([3, 4, 0, 1], [2, 7]))
 
 def horner(w, x):
     wynik = 0
+    w.reverse()
     for wsp in w:
-        wynik *= wsp
+        wynik = wynik * x + wsp
     return wynik
 
-print(horner([3, 4, 0, 0, 1], 2))
+# print(horner([3, 4, 0, 0, 1], 2))
 
 def horner_v2(w, a):
+    w.reverse()
     n = len(w)
     wynik = [0] * (n - 1)
     wynik[0] = w[0]
     for i in range(1, n - 1):
-        wynik[i] = wynik[i - 1] + a * w[i]
-    reszta = wynik[-1]
+        wynik[i] =  a * wynik[i-1]+ w[i]
+    reszta = a* wynik[-1] + w[-1]
     return wynik, reszta
 
 
-# print(horner_v2([3, 4, 0, 0, 1], 2))
+print(horner_v2([3, 4, 0, 0, 1], 2))
 
 
 
