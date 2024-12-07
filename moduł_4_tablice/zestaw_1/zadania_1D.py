@@ -116,7 +116,7 @@ def wariancje(tablica):
     wynik = 0
     for j in range(len(tablica)):
         wynik += (tablica[j] - srednia) ** 2
-    return wynik
+    return wynik/ilosc
 
 # print(wariancje([3,6,15,5,5,5]))
 
@@ -140,4 +140,4 @@ def sortowanie_parzyste_nieparzyste(tablica):
     return parzyste + nieparzyste
 
 
-# print(sortowanie_parzyste_nieparzyste([1, 5, 3, 9, 10, 2, 10, 5, 10, 4]))
+print(sortowanie_parzyste_nieparzyste([1, 5, 3, 9, 10, 2, 10, 5, 10, 4]))
