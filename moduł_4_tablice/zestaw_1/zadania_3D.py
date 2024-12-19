@@ -199,3 +199,15 @@ def sortuj_malejaco(tablica):
     tablica = tablica.sort(reverse=True)
     return tablica
 
+
+def sortuj_leksykograficznie(tablica):
+    n = len(tablica)
+    tablica = [str(x) for x in tablica]
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if tablica[j] > tablica[j + 1]:
+                tablica[j], tablica[j + 1] = tablica[j + 1], tablica[j]
+    return tablica
+
+
+# print(sortuj_leksykograficznie([4, 5, 6, 1, 7, 9, 10, 8, 41]))

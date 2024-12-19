@@ -227,7 +227,7 @@ def horner_v2(w, a):
     return wynik, reszta
 
 
-print(horner_v2([3, 4, 0, 0, 1], 2))
+# print(horner_v2([3, 4, 0, 0, 1], 2))
 
 
 
@@ -268,7 +268,7 @@ def najdluzszy_fibonacci(tablica):
                 poczatek = i
         else:
             dlugosc = 0
-    return max_dlugosc, poczatek
+    return max_dlugosc, poczatek-max_dlugosc+1
 
 
-# print(najdluzszy_fibonacci([5, 5, 7, 1, 1, 2, 3, 9, 1, 1, 2, 3, 5, 6, 6, 9]))
+print(najdluzszy_fibonacci([5, 5, 7, 1, 1, 2, 3, 9, 1, 1, 2, 3, 5, 6, 6, 9]))
